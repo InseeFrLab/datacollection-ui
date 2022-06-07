@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dc-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dc-ui
+  template:
+    metadata:
+      labels:
+        app: dc-ui
+    spec:
+      containers:
+        - name: dc-ui
+          image: inseefrlab/datacollection-ui:0.1.0
