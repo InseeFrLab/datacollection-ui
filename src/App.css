@@ -1,23 +1,26 @@
-:root{
+:root {
   --lateral-padding: 1em;
   --max-width: 1230px;
   background-color: black;
 }
 
-#root{
-  max-width:var(--max-width);
+#root {
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--lateral-padding);
   border: 2px solid orangered;
   border-radius: 2px;
   background-color: white;
-
 }
 
 .App {
-
 }
 
+.form-no-auth {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from {
