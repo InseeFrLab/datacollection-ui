@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useAPI, useConstCallback } from 'utils/hooks';
-import { AppContext } from '../../App';
-import { NONE } from '../../utils/constants';
-import { NoAuthLogin } from '../auth/provider/noAuth';
+import React, { useContext, useEffect, useState } from "react";
+import { useAPI, useConstCallback } from "utils/hooks";
+import { AppContext } from "../../App";
+import { NONE } from "../../utils/constants";
+import { NoAuthLogin } from "../auth/provider/noAuth";
 
 // const initialDataUser = {
 //   id: null,
@@ -19,7 +19,7 @@ export const UserAccountProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const { getMySurveys, getContact, getContactAddress, putAddress } = useAPI();
 
-  const loadUserData = useConstCallback(async id => {
+  const loadUserData = useConstCallback(async (id) => {
     setLoading(true);
     const { data: account } = await getContact(id);
     const { data: mySurveys } = await getMySurveys(id);
@@ -29,15 +29,8 @@ export const UserAccountProvider = ({ children }) => {
     setUser({ id, account, mySurveys, address });
   });
 
-  const updateAddress = async newAddress => {
+  const updateAddress = async (newAddress) => {
     setLoading(true);
-    const fakeNew = {
-      countryName: 'Uganda 2',
-      streetNumber: '368',
-      streetName: 'Cherish Wells',
-      city: 'Lake Lynn',
-      zipCode: '86597-8617',
-    };
     const {
       address: {
         _links: {
@@ -45,10 +38,10 @@ export const UserAccountProvider = ({ children }) => {
         },
       },
     } = user;
-    const { error } = await putAddress(updateUrl, fakeNew);
-    if (!error) setUser({ ...user, address: fakeNew });
+    const { error } = await putAddress(updateUrl, newAddress);
+    if (!error) setUser({ ...user, address: newAddress });
     else {
-      console.log('error in put');
+      console.log("error in put");
     }
     setLoading(false);
   };

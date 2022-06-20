@@ -1,9 +1,9 @@
-import { Backdrop, CircularProgress } from '@mui/material';
-import React from 'react';
+import { Backdrop, CircularProgress } from "@mui/material";
+import React from "react";
 
 const Simple = () => {
   return (
-    <Backdrop open>
+    <Backdrop open sx={{ zIndex: 9999999999 }}>
       <CircularProgress />
     </Backdrop>
   );

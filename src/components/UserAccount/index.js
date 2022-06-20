@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { UserAccountContext } from './context';
+import React, { useContext } from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { UserAccountContext } from "./context";
+import { AddressBlock } from "./address";
 
 export const UserAccount = () => {
   const {
-    user: { account, address },
-    updateAddress,
+    user: { account },
     // updateAccount,
   } = useContext(UserAccountContext);
 
@@ -23,7 +23,7 @@ export const UserAccount = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
+          "& > :not(style)": { m: 1, width: "25ch" },
         }}
         noValidate
         autoComplete="off"
@@ -40,7 +40,7 @@ export const UserAccount = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
+          "& > :not(style)": { m: 1, width: "25ch" },
         }}
         noValidate
         autoComplete="off"
@@ -56,7 +56,7 @@ export const UserAccount = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
+          "& > :not(style)": { m: 1, width: "25ch" },
         }}
         noValidate
         autoComplete="off"
@@ -88,48 +88,7 @@ export const UserAccount = () => {
         />
         <Button>Modifier</Button>
       </Box>
-
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <h3>Mon adresse</h3>
-        <TextField
-          id="outlined-name"
-          label="Numéro"
-          disabled
-          value={address.streetNumber}
-        />
-        <TextField
-          id="outlined-name"
-          label="Rue"
-          disabled
-          value={address.streetName}
-        />
-        <TextField
-          id="outlined-name"
-          label="Code Postal"
-          disabled
-          value={address.zipCode}
-        />
-        <TextField
-          id="outlined-name"
-          label="Ville"
-          disabled
-          value={address.city}
-        />
-        <TextField
-          id="outlined-name"
-          label="Pays"
-          disabled
-          value={address.countryName}
-        />
-        <Button onClick={updateAddress}>Modifier</Button>
-      </Box>
+      <AddressBlock />
     </>
   );
 };
