@@ -1,4 +1,5 @@
 {
   "apiUrl": "https://datacollection-management-api.dev.insee.io",
-  "authType": "NONE"
+  "authType": "NONE",
+  "portailUrl": "https://enquetes.dev.insee.io"
 }

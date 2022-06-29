@@ -1,7 +1,6 @@
-.header{
-  position :relative;
-  left: calc(-1*var(--lateral-padding));
-  width: calc(100% + 2*var(--lateral-padding));
+.header {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,35 +8,34 @@
   background: linear-gradient(to right, #f12711, #f5af19);
 }
 
-.header h1{
+.header h1 {
   margin: 0;
   padding: 0 0.4em;
   font-size: 1.95em;
   color: black;
 }
 
-.header img {   
+.header img {
   height: 100%;
   aspect-ratio: auto;
 }
 
-.kfc{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.kfc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.kfc a{
-    border-radius:.2em;
-    margin-bottom:0.35em;
-    line-height: 0.9em;
-    text-decoration: none;
-    display: block;
-    padding:.1em;
-    border: 2px solid red;
+.kfc a {
+  border-radius: 0.2em;
+  margin-bottom: 0.35em;
+  line-height: 0.9em;
+  text-decoration: none;
+  display: block;
+  padding: 0.1em;
+  border: 2px solid red;
 }
 
-.kfc a:hover{
+.kfc a:hover {
   background-color: orange;
-
 }

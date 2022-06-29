@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter,
   Routes,
   Route,
   Outlet,
   Navigate,
-} from 'react-router-dom';
-import { Header } from '../Header';
-import { Footer } from '../Footer';
-import { Menu } from '../Menu';
-import { SurveyList } from '../SurveyList';
-import { UserAccount } from '../UserAccount';
+} from "react-router-dom";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+import { Menu } from "../Menu";
+import { SurveyList } from "../SurveyList";
+import { UserAccount } from "../UserAccount";
 
 export const Router = () => {
   return (
@@ -23,7 +23,10 @@ export const Router = () => {
             <>
               <Header />
               <Menu />
-              <Outlet />
+              <div className="main-content">
+                <Outlet />
+              </div>
+
               <Footer />
             </>
           }
