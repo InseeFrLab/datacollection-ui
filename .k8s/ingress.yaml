@@ -7,9 +7,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - datacollection-ui.dev.insee.io
+        - mes-enquetes.dev.insee.io
   rules:
-    - host: datacollection-ui.dev.insee.io
+    - host: mes-enquetes.dev.insee.io
       http:
         paths:
           - path: /
