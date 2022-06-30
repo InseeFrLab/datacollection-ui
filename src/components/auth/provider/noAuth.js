@@ -1,5 +1,6 @@
 import {
   FormControl,
+  InputLabel,
   MenuItem,
   Select,
   Stack,
@@ -16,11 +17,9 @@ export const NoAuthLogin = ({ setId }) => {
   const { apiUrl, portailUrl, setLoading } = useContext(AppContext);
   const [contacts, setContacts] = useState([]);
   const [selected, setSelected] = useState("");
-  const { getFirstContacts } = useAPI();
-
   const [idSelected, setIdSelected] = useState("");
-
   const [chooseType, setChooseType] = useState(false);
+  const { getFirstContacts } = useAPI();
 
   useEffect(() => {
     const loadContact = async () => {
@@ -41,6 +40,8 @@ export const NoAuthLogin = ({ setId }) => {
   }, [contacts, chooseType]);
 
   const handleChangeChooseType = (event) => {
+    setSelected("");
+    setIdSelected("");
     setChooseType(event.target.checked);
   };
   const handleChangeSelect = (event) => {
@@ -117,7 +118,11 @@ export const NoAuthLogin = ({ setId }) => {
           <div className="groupe panel-default" id="content">
             <div className="group-heading">Authentification</div>
             <div className="group-body">
-              <FormControl variant="standard" fullWidth>
+              <FormControl
+                variant="standard"
+                fullWidth
+                sx={{ marginBottom: "15px" }}
+              >
                 <Typography>
                   <b>Choix du contact</b>
                 </Typography>
@@ -126,45 +131,57 @@ export const NoAuthLogin = ({ setId }) => {
                   <Switch onChange={handleChangeChooseType} />
                   <Typography>Parmi une liste</Typography>
                 </Stack>
-                <br />
-                {!chooseType && (
-                  <div className="form-group">
-                    <TextField
-                      fullWidth
-                      id="demo-simple-text"
-                      value={idSelected}
-                      label="Identifiant"
-                      onChange={handleChangeInput}
-                    />
-                  </div>
-                )}
-                {chooseType && contacts.length > 0 && (
-                  <div className="form-group-login">
-                    <Select
-                      fullWidth
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={selected}
-                      label="Contact"
-                      onChange={handleChangeSelect}
-                    >
-                      {contacts.map(
-                        (
-                          { lastName, firstName, function: serviceFunction },
-                          index
-                        ) => (
-                          <MenuItem
-                            key={`${index}-item`}
-                            value={index}
-                          >{`${lastName} ${firstName} - ${serviceFunction}`}</MenuItem>
-                        )
-                      )}
-                    </Select>
-                  </div>
-                )}
               </FormControl>
+              <br />
+              {!chooseType && (
+                <FormControl
+                  variant="standard"
+                  fullWidth
+                  sx={{ marginBottom: "15px" }}
+                >
+                  <TextField
+                    fullWidth
+                    id="demo-simple-text"
+                    value={idSelected}
+                    label="Identifiant"
+                    onChange={handleChangeInput}
+                  />
+                </FormControl>
+              )}
+              {chooseType && contacts.length > 0 && (
+                <FormControl
+                  variant="standard"
+                  fullWidth
+                  sx={{ marginBottom: "15px" }}
+                >
+                  <InputLabel id="contact-select-label">Contact</InputLabel>
+                  <Select
+                    fullWidth
+                    labelId="contact-select-label"
+                    id="contact-select"
+                    value={selected}
+                    label="Contact"
+                    onChange={handleChangeSelect}
+                  >
+                    <MenuItem disabled value="">
+                      <em>Contact</em>
+                    </MenuItem>
+                    {contacts.map(
+                      (
+                        { lastName, firstName, function: serviceFunction },
+                        index
+                      ) => (
+                        <MenuItem
+                          key={`${index}-item`}
+                          value={index}
+                        >{`${lastName} ${firstName} - ${serviceFunction}`}</MenuItem>
+                      )
+                    )}
+                  </Select>
+                </FormControl>
+              )}
 
-              {(selected || idSelected) && (
+              {(Number.isInteger(selected) || idSelected) && (
                 <div className="form-group text-right">
                   <button
                     className="button-insee"
