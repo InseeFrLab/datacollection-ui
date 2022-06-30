@@ -1,41 +1,53 @@
-.header {
-  position: relative;
-  width: 100%;
+.header{
+  position :relative;
+  left: calc(-1*var(--lateral-padding));
+  width: calc(100% + 2*var(--lateral-padding));
   display: flex;
-  justify-content: space-between;
+  justify-content:  flex-start;
   align-items: center;
-  height: 7em;
-  background: linear-gradient(to right, #f12711, #f5af19);
+  height:6.5em;
+  background-color: var(--theme-header-background);
 }
 
-.header h1 {
-  margin: 0;
+.header h1{
   padding: 0 0.4em;
-  font-size: 1.95em;
-  color: black;
+  font-size: clamp(0.6rem, 0.7rem + 1.6368vw, 2rem);
+  line-height:1.2em;
 }
 
 .header img {
-  height: 100%;
-  aspect-ratio: auto;
+  height:100%;
 }
 
-.kfc {
+@media only screen and (max-width: 480px) {
+  .header img {
+    position:absolute;
+    opacity: 20%;
+  }
+  
+}
+
+.kfc{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+ 
 }
 
-.kfc a {
-  border-radius: 0.2em;
-  margin-bottom: 0.35em;
-  line-height: 0.9em;
-  text-decoration: none;
-  display: block;
-  padding: 0.1em;
-  border: 2px solid red;
+.kfc a{
+    border-radius:3px;
+    line-height: 1.05em;
+    display: block;
+    font-size: 0.85em;
+    color: var(--theme-dark-color);
+    background-color: var(--theme-light-color);
+    text-align: right;
+    padding: .2em .3em;
 }
 
-.kfc a:hover {
-  background-color: orange;
+.kfc button{
+  font-weight:bold;
+  background-color: var(--theme-header-background);
+  line-height: 1em;
+  text-align: right;
 }
