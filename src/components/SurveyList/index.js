@@ -1,46 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { format } from "date-fns";
 import { Welcome } from "../Welcome";
-import { DataGrid, frFR } from "@mui/x-data-grid";
 import { Typography } from "@mui/material";
 import { UserAccountContext } from "../UserAccount/context";
 import { useAPI } from "../../utils/hooks";
-import { SurveyItem } from "./item";
 import { SmartList } from "./smartList";
-
-const columns = [
-  { field: "surveyUnitId", headerName: "Référence unité enquêtée", width: 200 },
-  { field: "surveyWording", headerName: "Nom de l'enquête", width: 400 },
-  {
-    field: "monitoringDate",
-    headerName: "Suivi",
-    width: 300,
-    renderCell: (cellValues) => {
-      return (
-        <span>{`Réponse attendu avant le ${format(
-          new Date(cellValues.row.monitoringDate),
-          "dd/MM/yyyy à HH:mm:ss"
-        )}`}</span>
-      );
-    },
-  },
-  {
-    field: "accessUrl",
-    headerName: "Accès",
-    width: 30,
-    renderCell: (cellValues) => {
-      return (
-        <a
-          href={`https://stromae-v2.dev.insee.io/visualize?questionnaire=https%3A%2F%2Fpogues-back-office.dev.insee.io%2Fapi%2Fpersistence%2Fquestionnaire%2Fjson-lunatic%2Fkzqsw3qa-q-0-1647855585412`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Lien
-        </a>
-      );
-    },
-  },
-];
 
 export const SurveyList = () => {
   const { user, setUser } = useContext(UserAccountContext);
