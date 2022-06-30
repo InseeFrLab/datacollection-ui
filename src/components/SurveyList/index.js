@@ -5,6 +5,8 @@ import { DataGrid, frFR } from "@mui/x-data-grid";
 import { Typography } from "@mui/material";
 import { UserAccountContext } from "../UserAccount/context";
 import { useAPI } from "../../utils/hooks";
+import { SurveyItem } from "./item";
+import { SmartList } from "./smartList";
 
 const columns = [
   { field: "surveyUnitId", headerName: "Référence unité enquêtée", width: 200 },
@@ -53,21 +55,15 @@ export const SurveyList = () => {
     };
     if (!user.mySurveys) load();
   }, [getMySurveys, setUser, user, user.mySurveys]);
-
-  console.log(user.mySurveys);
   return (
     <>
       <Welcome />
       <Typography variant="h4">La liste des mes enquêtes à moi</Typography>
-      <div style={{ height: 400, width: "80%", margin: "auto" }}>
+      <div style={{ width: "90%", margin: "auto" }}>
         {user.mySurveys && user.mySurveys.length > 0 && (
-          <DataGrid
-            localeText={frFR.components.MuiDataGrid.defaultProps.localeText}
-            rows={user.mySurveys}
-            columns={columns}
-            getRowId={(row) => row.surveyUnitId}
-          />
+          <SmartList mySurveys={user.mySurveys} />
         )}
+
         {user.mySurveys && user.mySurveys.length === 0 && (
           <Typography>Vous n'avez aucune enquête.</Typography>
         )}
