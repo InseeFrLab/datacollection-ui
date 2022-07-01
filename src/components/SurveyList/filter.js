@@ -70,16 +70,14 @@ export const SmartFilter = ({ mySurveys, setSurveyFiltered, setPage }) => {
       }}
     >
       <Grid container spacing={2} sx={{ marginTop: "15px" }}>
-        <Grid item xs={1} margin="auto" paddingTop={0}>
-          <Typography variant="h5">Filtrer</Typography>
-        </Grid>
-        <Grid item xs={7}>
-          <FormControl variant="standard" fullWidth>
+        <Grid item xs={8}>
+          <FormControl fullWidth>
             <InputLabel id="demo-multiple-chip-label">Enquêtes</InputLabel>
             <Select
               labelId="demo-multiple-chip-label"
               id="demo-multiple-chip"
               variant="standard"
+              label="Enquêtes"
               multiple
               value={selectedSurveysFilter}
               onChange={handleChangeFilterSurvey}

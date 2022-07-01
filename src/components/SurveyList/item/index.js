@@ -41,10 +41,9 @@ export const SurveyItem = ({ survey, index }) => {
             <IconButton aria-label="Accéder au questionnaire">
               <ListAlt />
             </IconButton>
-            {/* <Chip label="Ouverte" color="warning" /> */}
           </Grid>
           <Grid item xs={12} sm container>
-            <Grid item xs={11} container direction="column" spacing={2}>
+            <Grid item xs={7} container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1" component="div">
                   {surveyWording}
@@ -63,10 +62,10 @@ export const SurveyItem = ({ survey, index }) => {
             </Grid>
             <Grid
               item
-              xs={1}
+              xs={5}
               container
               direction="column"
-              sx={{ textAlign: "center" }}
+              sx={{ textAlign: "right" }}
             >
               <Grid item>
                 {surveyOpen && (

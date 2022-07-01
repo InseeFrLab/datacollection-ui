@@ -1,6 +1,5 @@
 :root {
   --lateral-padding: 1.5em;
-  --max-width: 1230px;
 
   --theme-header-background: #f7f7f7;
 
@@ -17,15 +16,14 @@
   --theme-gray-gradient: linear-gradient(180deg, #ffffffd7, #dbdbdb);
 
   box-sizing: border-box;
-  background-color: black;
+  background-color: white;
 }
 
 body {
-  background-color: black;
+  background-color: white;
 }
 
 #root {
-  /* max-width:var(--max-width); */
   margin: 0 auto;
   padding: 0 var(--lateral-padding) 0.5em var(--lateral-padding);
   border-radius: 3px;
@@ -34,6 +32,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   line-height: 1.6em;
+}
+
+.main-content {
+  padding-bottom: 5em;
 }
 
 .App {
