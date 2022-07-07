@@ -70,7 +70,7 @@ export const SmartFilter = ({ mySurveys, setSurveyFiltered, setPage }) => {
     >
       <Grid container spacing={2} sx={{ marginTop: "15px" }}>
         <Grid item xs={8}>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ backgroundColor: "white" }}>
             <InputLabel id="demo-multiple-chip-label">Enquêtes</InputLabel>
             <Select
               labelId="demo-multiple-chip-label"
@@ -115,13 +115,17 @@ export const SmartFilter = ({ mySurveys, setSurveyFiltered, setPage }) => {
           <FormControl
             fullWidth
             variant="standard"
-            sx={{ marginBottom: "15px", minWidth: "50%" }}
+            sx={{
+              marginBottom: "15px",
+              minWidth: "50%",
+              backgroundColor: "white",
+            }}
           >
             <TextField
               fullWidth
               id="filter"
               value={filter}
-              label="Filtre"
+              label="Rechercher"
               placeholder="Filtrer par UE, enquêtes ...."
               onChange={handleChangeFilter}
             />

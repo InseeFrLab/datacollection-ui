@@ -21,7 +21,7 @@ export const SurveyList = () => {
   return (
     <>
       <Welcome />
-      <Typography variant="h4">La liste des mes enquêtes à moi</Typography>
+      <Typography variant="h4">Mes enquêtes</Typography>
       <div style={{ width: "90%", margin: "auto" }}>
         {user.mySurveys && user.mySurveys.length > 0 && (
           <SmartList mySurveys={user.mySurveys} />

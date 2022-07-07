@@ -1,30 +1,26 @@
-import { useContext } from 'react';
-import { AppContext } from 'App';
-import { AuthContext } from 'components/auth/provider';
-import { API } from 'utils/api';
-import { useConstCallback } from './useConstCallback';
+import { useContext } from "react";
+import { AppContext } from "App";
+import { AuthContext } from "components/auth/provider";
+import { API } from "utils/api";
+import { useConstCallback } from "./useConstCallback";
 
 export const useAPI = () => {
   const oidcClient = useContext(AuthContext);
   const { apiUrl } = useContext(AppContext);
 
-  const postParadata = useConstCallback(body =>
-    API.postParadata(apiUrl)(oidcClient.accessToken)(body)
-  );
-
   const getFirstContacts = useConstCallback(() =>
     API.getContacts(apiUrl)(oidcClient.accessToken)
   );
 
-  const getContact = useConstCallback(id =>
+  const getContact = useConstCallback((id) =>
     API.getContact(apiUrl)(id)(oidcClient.accessToken)
   );
 
-  const getMySurveys = useConstCallback(id =>
+  const getMySurveys = useConstCallback((id) =>
     API.getMySurveys(apiUrl)(id)(oidcClient.accessToken)
   );
 
-  const getContactAddress = useConstCallback(id =>
+  const getContactAddress = useConstCallback((id) =>
     API.getContactAddress(apiUrl)(id)(oidcClient.accessToken)
   );
 
@@ -33,7 +29,6 @@ export const useAPI = () => {
   );
 
   return {
-    postParadata,
     getFirstContacts,
     getMySurveys,
     getContact,

@@ -1,10 +1,10 @@
-import { createContext, useEffect, useState } from 'react';
-import { getConfiguration } from 'utils/configuration';
-import './App.css';
-import AuthProvider from './components/auth/provider/component';
-import { Router } from './components/Router';
-import { LoaderSimple } from './components/shared/loader';
-import { UserAccountProvider } from './components/UserAccount/context';
+import { createContext, useEffect, useState } from "react";
+import { getConfiguration } from "utils/configuration";
+import "./App.css";
+import AuthProvider from "./components/auth/provider/component";
+import { Router } from "./components/Router";
+import { LoaderSimple } from "./components/shared/loader";
+import { UserAccountProvider } from "./components/UserAccount/context";
 
 export const AppContext = createContext();
 
@@ -25,7 +25,7 @@ const App = () => {
   }, [configuration]);
 
   return (
-    <div className="App">
+    <>
       {configuration && (
         <AppContext.Provider value={{ ...configuration, setLoading }}>
           <AuthProvider authType={configuration.authType}>
@@ -36,7 +36,7 @@ const App = () => {
         </AppContext.Provider>
       )}
       {isLoading && <LoaderSimple />}
-    </div>
+    </>
   );
 };
 

@@ -23,7 +23,7 @@ export const SurveyItem = ({ survey, index }) => {
     <Grow
       in
       style={{ transformOrigin: "0 0 0" }}
-      timeout={index * 400 < 2000 ? index * 400 : 2000}
+      timeout={(1 + index) * 400 < 2000 ? (1 + index) * 400 : 2000}
     >
       <Paper
         sx={{

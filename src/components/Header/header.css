@@ -1,11 +1,8 @@
 .header {
-  position: relative;
-  left: calc(-1 * var(--lateral-padding));
-  width: calc(100% + 2 * var(--lateral-padding));
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  height: 6.5em;
+  height: 9vh;
   background-color: var(--theme-header-background);
 }
 
@@ -16,7 +13,7 @@
 }
 
 .header img {
-  height: 100%;
+  height: inherit;
 }
 
 @media only screen and (max-width: 480px) {
@@ -26,8 +23,7 @@
   }
 }
 
-.kfc {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+.kfc,
+.kfc button {
+  height: 100%;
 }

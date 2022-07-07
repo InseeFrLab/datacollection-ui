@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Card } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { UserAccountContext } from "../context";
 import { AddressDisplay } from "./display";
@@ -16,7 +16,11 @@ export const AddressBlock = () => {
   };
 
   return (
-    <div className="user-address">
+    <Card
+      sx={{
+        p: 2,
+      }}
+    >
       <AddressDisplay address={address} />
       <Button onClick={() => setAddressEdit(true)} variant="contained">
         Modifer
@@ -26,6 +30,6 @@ export const AddressBlock = () => {
         close={closeAddessEdit}
         address={address}
       />
-    </div>
+    </Card>
   );
 };
