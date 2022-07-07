@@ -12,7 +12,7 @@ import { NoAuthLogin } from "../auth/provider/noAuth";
 export const UserAccountContext = React.createContext();
 
 export const UserAccountProvider = ({ children }) => {
-  const { authType, setLoading } = useContext(AppContext);
+  const { authType, setLoading, openNotif } = useContext(AppContext);
   const [user, setUser] = useState(null);
   const [chooseUser] = useState(authType === NONE);
 
@@ -21,12 +21,18 @@ export const UserAccountProvider = ({ children }) => {
 
   const loadUserData = useConstCallback(async (id) => {
     setLoading(true);
-    const { data: account } = await getContact(id);
-    const { data: mySurveys } = await getMySurveys(id);
-    const { data: address } = await getContactAddress(id);
+    const { data: account, error: accountError } = await getContact(id);
+    const { data: mySurveys, error: mySurveysError } = await getMySurveys(id);
+    const { data: address, error: addressError } = await getContactAddress(id);
     setLoading(false);
-
-    setUser({ id, account, mySurveys, address });
+    if (!accountError && !mySurveysError && !addressError)
+      setUser({ id, account, mySurveys, address });
+    else {
+      openNotif({
+        severity: "error",
+        message: `Une erreur est survenue lors du chargement du contact ${id}.`,
+      });
+    }
   });
 
   const updateAddress = async (newAddress) => {
@@ -39,9 +45,17 @@ export const UserAccountProvider = ({ children }) => {
       },
     } = user;
     const { error } = await putAddress(updateUrl, newAddress);
-    if (!error) setUser({ ...user, address: newAddress });
-    else {
-      console.log("error in put");
+    if (!error) {
+      openNotif({
+        severity: "success",
+        message: "Le changement d'adresse a bien été pris en compte",
+      });
+      setUser({ ...user, address: newAddress });
+    } else {
+      openNotif({
+        severity: "error",
+        message: "Une erreur est survenue lors de la sauvegarde.",
+      });
     }
     setLoading(false);
   };

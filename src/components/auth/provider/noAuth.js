@@ -14,7 +14,7 @@ import { useAPI } from "../../../utils/hooks/api";
 import "./noAuth.css";
 
 export const NoAuthLogin = ({ setId }) => {
-  const { apiUrl, portailUrl, setLoading } = useContext(AppContext);
+  const { apiUrl, portailUrl, setLoading, openNotif } = useContext(AppContext);
   const [contacts, setContacts] = useState([]);
   const [selected, setSelected] = useState("");
   const [idSelected, setIdSelected] = useState("");
@@ -24,12 +24,18 @@ export const NoAuthLogin = ({ setId }) => {
   useEffect(() => {
     const loadContact = async () => {
       setLoading(true);
-      const { data } = await getFirstContacts();
+      const { data, error } = await getFirstContacts();
       if (data) {
         const {
           _embedded: { contacts: contactsFetched },
         } = data;
         setContacts(contactsFetched);
+      }
+      if (error) {
+        openNotif({
+          severity: "error",
+          message: "Une erreur est survenue lors du chargement des contacts.",
+        });
       }
 
       setLoading(false);
