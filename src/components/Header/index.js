@@ -30,7 +30,7 @@ export const Header = () => {
       <img src={`${process.env.PUBLIC_URL}/logo-proto.png`} alt="alt" />
 
       <h1>Portail de réponse aux enquêtes de la statistique publique</h1>
-      <div className="kfc" style={{ borderLeft: "1px solid black" }}>
+      <div className="kfc" style={{ borderLeft: "1px solid #3467ae" }}>
         <Tooltip title="Aide et paramètres">
           <Button
             startIcon={<AccountCircle />}

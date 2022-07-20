@@ -1,5 +1,4 @@
-import { Alert, Card, Divider, Snackbar, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Alert, Snackbar } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
 import { getConfiguration } from "utils/configuration";
 import "./App.css";
@@ -20,7 +19,7 @@ const App = () => {
   });
 
   const openNotif = ({ message, severity }) => {
-    setNotif({ open: false, message, severity });
+    setNotif({ open: true, message, severity });
   };
 
   useEffect(() => {
