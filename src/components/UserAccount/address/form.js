@@ -74,7 +74,7 @@ export const AddressForm = ({ open, close, address }) => {
             <TextField
               className="name-form"
               margin="dense"
-              label={"Code Postal"}
+              label={"Code postal"}
               fullWidth
               variant="standard"
               value={formValues.zipCode}
@@ -83,7 +83,7 @@ export const AddressForm = ({ open, close, address }) => {
             <TextField
               className="name-form"
               margin="dense"
-              label={"Commune"}
+              label={"Ville"}
               fullWidth
               variant="standard"
               value={formValues.city}
@@ -117,7 +117,7 @@ export const AddressForm = ({ open, close, address }) => {
       >
         <DialogTitle>{`Confirmation de l'adresse`}</DialogTitle>
         <DialogContent>
-          {`Confirmez-vous l'adrese suivante ?`}
+          {`Confirmez-vous l'adresse suivante ?`}
           <br />
           <br />
           <AddressDisplay address={formValues} title={false} />

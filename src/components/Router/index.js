@@ -11,6 +11,7 @@ import { Footer } from "../Footer";
 import { Menu } from "../Menu";
 import { SurveyList } from "../SurveyList";
 import { UserAccount } from "../UserAccount";
+import { Box } from "@mui/system";
 
 export const Router = () => {
   return (
@@ -21,13 +22,16 @@ export const Router = () => {
           path="/portail"
           element={
             <>
-              <Header />
-              <Menu />
               <div className="main-content">
-                <Outlet />
+                <Header />
+                <Menu />
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <div className="main-body">
+                    <Outlet />
+                  </div>
+                  <Footer />
+                </Box>
               </div>
-
-              <Footer />
             </>
           }
         >

@@ -23,19 +23,24 @@ body {
   background-color: white;
 }
 
+.main-content {
+  background-color: #efefef;
+  min-height: 100vh;
+}
+
+.main-body {
+  padding: 1em;
+}
+
 #root {
   margin: 0 auto;
-  padding: 0 var(--lateral-padding) 0.5em var(--lateral-padding);
   border-radius: 3px;
+  min-height: 100vh;
 
-  background-color: white;
+  /* background-color: white; */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   line-height: 1.6em;
-}
-
-.main-content {
-  padding-bottom: 5em;
 }
 
 @keyframes App-logo-spin {

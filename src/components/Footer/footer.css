@@ -1,10 +1,6 @@
 .footer {
   border-radius: 3px;
   background-image: var(--theme-gray-gradient);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .footer ul {
