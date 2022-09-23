@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { OIDC, NONE } from "utils/constants";
-import { getOidc } from "utils/configuration";
-import { createKeycloakOidcClient } from "utils/keycloak";
-import { listenActivity } from "utils/events";
+import { OIDC, NONE } from "core/constants";
+import { getOidc } from "core/configuration";
+import { createKeycloakOidcClient } from "core/keycloak";
+import { listenActivity } from "core/events";
 
 export const AuthContext = React.createContext();
 

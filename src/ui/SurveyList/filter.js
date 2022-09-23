@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { filterSurveys } from "utils/functions";
+import { filterSurveys } from "core/functions";
 
 export const SmartFilter = ({ mySurveys, setSurveyFiltered, setPage }) => {
     const [filter, setFilter] = useState("");

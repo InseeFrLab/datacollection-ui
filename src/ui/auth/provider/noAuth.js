@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../App";
-import { useAPI } from "../../../utils/hooks/api";
+import { useAPI } from "../../../core/hooks/api";
 import "./noAuth.css";
 
 export const NoAuthLogin = ({ setId }) => {

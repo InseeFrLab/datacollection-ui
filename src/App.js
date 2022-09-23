@@ -1,6 +1,6 @@
 import { Alert, Snackbar } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
-import { getConfiguration } from "utils/configuration";
+import { getConfiguration } from "core/configuration";
 import "./App.css";
 import AuthProvider from "./ui/auth/provider/component";
 import { Router } from "./ui/Router";

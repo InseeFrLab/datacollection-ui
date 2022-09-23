@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useAPI, useConstCallback } from "utils/hooks";
+import { useAPI, useConstCallback } from "core/hooks";
 import { AppContext } from "../../App";
-import { NONE } from "../../utils/constants";
+import { NONE } from "../../core/constants";
 import { NoAuthLogin } from "../auth/provider/noAuth";
 
 // const initialDataUser = {

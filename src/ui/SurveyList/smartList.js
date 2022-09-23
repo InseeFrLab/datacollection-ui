@@ -2,7 +2,7 @@ import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 import { Divider, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { chunkArray } from "utils/functions";
+import { chunkArray } from "core/functions";
 import { SmartFilter } from "./filter";
 import { SurveyItem } from "./item";
 

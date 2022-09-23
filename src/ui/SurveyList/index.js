@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Welcome } from "../Welcome";
 import { Typography } from "@mui/material";
 import { UserAccountContext } from "../UserAccount/context";
-import { useAPI } from "../../utils/hooks";
+import { useAPI } from "../../core/hooks";
 import { SmartList } from "./smartList";
 
 export const SurveyList = () => {
