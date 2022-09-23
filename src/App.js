@@ -10,63 +10,57 @@ import { UserAccountProvider } from "./components/UserAccount/context";
 export const AppContext = createContext();
 
 const App = () => {
-  const [configuration, setConfiguration] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-  const [notif, setNotif] = useState({
-    open: false,
-    severity: "info",
-    message: "",
-  });
+    const [configuration, setConfiguration] = useState(null);
+    const [isLoading, setLoading] = useState(false);
+    const [notif, setNotif] = useState({
+        open: false,
+        severity: "info",
+        message: "",
+    });
 
-  const openNotif = ({ message, severity }) => {
-    setNotif({ open: true, message, severity });
-  };
+    const openNotif = ({ message, severity }) => {
+        setNotif({ open: true, message, severity });
+    };
 
-  useEffect(() => {
-    if (!configuration) {
-      setLoading(true);
-      const loadConfiguration = async () => {
-        const configurationResponse = await getConfiguration();
-        setLoading(false);
-        setConfiguration(configurationResponse);
-      };
-      loadConfiguration();
-    }
-  }, [configuration]);
+    useEffect(() => {
+        if (!configuration) {
+            setLoading(true);
+            const loadConfiguration = async () => {
+                const configurationResponse = await getConfiguration();
+                setLoading(false);
+                setConfiguration(configurationResponse);
+            };
+            loadConfiguration();
+        }
+    }, [configuration]);
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
 
-    setNotif({ open: false });
-  };
+        setNotif({ open: false });
+    };
 
-  return (
-    <>
-      {configuration && (
-        <AppContext.Provider
-          value={{ ...configuration, setLoading, openNotif }}
-        >
-          <AuthProvider authType={configuration.authType}>
-            <UserAccountProvider>
-              <Router />
-            </UserAccountProvider>
-          </AuthProvider>
-        </AppContext.Provider>
-      )}
-      {isLoading && <LoaderSimple />}
-      <Snackbar open={notif.open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity={notif.severity}
-          sx={{ width: "100%" }}
-        >
-          {notif.message}
-        </Alert>
-      </Snackbar>
-    </>
-  );
+    return (
+        <>
+            {configuration && (
+                <AppContext.Provider value={{ ...configuration, setLoading, openNotif }}>
+                    <AuthProvider authType={configuration.authType}>
+                        <UserAccountProvider>
+                            <Router />
+                        </UserAccountProvider>
+                    </AuthProvider>
+                </AppContext.Provider>
+            )}
+            {isLoading && <LoaderSimple />}
+            <Snackbar open={notif.open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={notif.severity} sx={{ width: "100%" }}>
+                    {notif.message}
+                </Alert>
+            </Snackbar>
+        </>
+    );
 };
 
 export default App;

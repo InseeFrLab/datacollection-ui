@@ -1,29 +1,29 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 9vh;
-  background-color: var(--theme-header-background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 9vh;
+    background-color: var(--theme-header-background);
 }
 
 .header h1 {
-  padding: 0 0.4em;
-  font-size: clamp(0.6rem, 0.7rem + 1.6368vw, 2rem);
-  line-height: 1.2em;
+    padding: 0 0.4em;
+    font-size: clamp(0.6rem, 0.7rem + 1.6368vw, 2rem);
+    line-height: 1.2em;
 }
 
 .header img {
-  height: inherit;
+    height: inherit;
 }
 
 @media only screen and (max-width: 480px) {
-  .header img {
-    position: absolute;
-    opacity: 20%;
-  }
+    .header img {
+        position: absolute;
+        opacity: 20%;
+    }
 }
 
 .kfc,
 .kfc button {
-  height: 100%;
+    height: 100%;
 }

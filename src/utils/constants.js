@@ -1,2 +1,2 @@
-export const OIDC = 'OIDC';
-export const NONE = 'NONE';
+export const OIDC = "OIDC";
+export const NONE = "NONE";

@@ -1,10 +1,10 @@
-import { getEnvVar } from './env';
+import { getEnvVar } from "./env";
 
 const basePath = `${window.location.origin}`;
 
-const nameConfigFile = getEnvVar('NAME_CONFIG_FILE') ?? 'configuration.json';
+const nameConfigFile = getEnvVar("NAME_CONFIG_FILE") ?? "configuration.json";
 
-const nameOidcFile = getEnvVar('NAME_OIDC_FILE') ?? 'keycloak.json';
+const nameOidcFile = getEnvVar("NAME_OIDC_FILE") ?? "keycloak.json";
 
 const getFile = url => fetch(url).then(r => r.json());
 

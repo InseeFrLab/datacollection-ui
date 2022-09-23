@@ -5,31 +5,27 @@ import { AddressDisplay } from "./display";
 import { AddressForm } from "./form";
 
 export const AddressBlock = () => {
-  const {
-    user: { address },
-  } = useContext(UserAccountContext);
+    const {
+        user: { address },
+    } = useContext(UserAccountContext);
 
-  const [addressEdit, setAddressEdit] = useState(false);
+    const [addressEdit, setAddressEdit] = useState(false);
 
-  const closeAddessEdit = () => {
-    setAddressEdit(false);
-  };
+    const closeAddessEdit = () => {
+        setAddressEdit(false);
+    };
 
-  return (
-    <Card
-      sx={{
-        p: 2,
-      }}
-    >
-      <AddressDisplay address={address} />
-      <Button onClick={() => setAddressEdit(true)} variant="contained">
-        Modifer
-      </Button>
-      <AddressForm
-        open={addressEdit}
-        close={closeAddessEdit}
-        address={address}
-      />
-    </Card>
-  );
+    return (
+        <Card
+            sx={{
+                p: 2,
+            }}
+        >
+            <AddressDisplay address={address} />
+            <Button onClick={() => setAddressEdit(true)} variant="contained">
+                Modifer
+            </Button>
+            <AddressForm open={addressEdit} close={closeAddessEdit} address={address} />
+        </Card>
+    );
 };

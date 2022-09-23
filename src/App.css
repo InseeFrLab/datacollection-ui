@@ -1,53 +1,53 @@
 :root {
-  --lateral-padding: 1.5em;
+    --lateral-padding: 1.5em;
 
-  --theme-header-background: #f7f7f7;
+    --theme-header-background: #f7f7f7;
 
-  --theme-menu-background: #414c5c;
-  --theme-menu-background-active: #3467ae;
-  --theme-menu-background-hover: rgb(255, 208, 0);
-  --theme-menu-link: white;
-  --theme-menu-link-active: white;
-  --theme-menu-link-hover: #514930;
-  --theme-menu-separator: #414c5c;
+    --theme-menu-background: #414c5c;
+    --theme-menu-background-active: #3467ae;
+    --theme-menu-background-hover: rgb(255, 208, 0);
+    --theme-menu-link: white;
+    --theme-menu-link-active: white;
+    --theme-menu-link-hover: #514930;
+    --theme-menu-separator: #414c5c;
 
-  --theme-footer-link: #514930;
+    --theme-footer-link: #514930;
 
-  --theme-gray-gradient: linear-gradient(180deg, #ffffffd7, #dbdbdb);
+    --theme-gray-gradient: linear-gradient(180deg, #ffffffd7, #dbdbdb);
 
-  box-sizing: border-box;
-  background-color: white;
+    box-sizing: border-box;
+    background-color: white;
 }
 
 body {
-  background-color: white;
+    background-color: white;
 }
 
 .main-content {
-  background-color: #efefef;
-  min-height: 100vh;
+    background-color: #efefef;
+    min-height: 100vh;
 }
 
 .main-body {
-  padding: 1em;
+    padding: 1em;
 }
 
 #root {
-  margin: 0 auto;
-  border-radius: 3px;
-  min-height: 100vh;
+    margin: 0 auto;
+    border-radius: 3px;
+    min-height: 100vh;
 
-  /* background-color: white; */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* background-color: white; */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  line-height: 1.6em;
+    line-height: 1.6em;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
