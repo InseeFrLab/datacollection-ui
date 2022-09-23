@@ -2,10 +2,10 @@ import { Alert, Snackbar } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
 import { getConfiguration } from "utils/configuration";
 import "./App.css";
-import AuthProvider from "./components/auth/provider/component";
-import { Router } from "./components/Router";
-import { LoaderSimple } from "./components/shared/loader";
-import { UserAccountProvider } from "./components/UserAccount/context";
+import AuthProvider from "./ui/auth/provider/component";
+import { Router } from "./ui/Router";
+import { LoaderSimple } from "./ui/shared/loader";
+import { UserAccountProvider } from "./ui/UserAccount/context";
 
 export const AppContext = createContext();
 
