@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { Card, Grid, Grow, Typography } from "@mui/material";
 import { UserAccountContext } from "./context";
 import { AddressBlock } from "./address";
-import { Card, Grid, Grow, Typography } from "@mui/material";
 
 export const UserAccount = () => {
     const {
