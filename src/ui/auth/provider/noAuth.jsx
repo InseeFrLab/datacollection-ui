@@ -13,6 +13,7 @@ import { AppContext } from "../../../App";
 import { useAPI } from "core/hooks/api";
 import { notifDictionary } from "i18n";
 import { ERROR_TYPE } from "core/constants";
+import { buttonDictionary } from "i18n";
 import "./noAuth.css";
 
 export const NoAuthLogin = ({ setId }) => {
@@ -155,7 +156,7 @@ export const NoAuthLogin = ({ setId }) => {
               {(Number.isInteger(selected) || idSelected) && (
                 <div className="form-group text-right">
                   <button className="button-insee" onClick={() => chooseUser(chooseType)}>
-                    Connexion
+                    {buttonDictionary.login}
                   </button>
                 </div>
               )}

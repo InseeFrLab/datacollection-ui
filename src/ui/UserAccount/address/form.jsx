@@ -11,6 +11,7 @@ import {
 import { useContext, useState } from "react";
 import { UserAccountContext } from "../context";
 import { AddressDisplay } from "./display";
+import { buttonDictionary } from "i18n";
 
 export const AddressForm = ({ open, close, address }) => {
   const { updateAddress } = useContext(UserAccountContext);
@@ -101,10 +102,10 @@ export const AddressForm = ({ open, close, address }) => {
           </DialogContent>
           <DialogActions>
             <Button variant="contained" onClick={close}>
-              Annuler
+              {buttonDictionary.cancel}
             </Button>
             <Button variant="contained" onClick={validateForm}>
-              Sauvegarder
+              {buttonDictionary.cancel}
             </Button>
           </DialogActions>
         </Dialog>
@@ -119,10 +120,10 @@ export const AddressForm = ({ open, close, address }) => {
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={() => setConfirmation(false)}>
-            Non
+            {buttonDictionary.no}
           </Button>
           <Button variant="contained" onClick={confirm}>
-            Oui
+            {buttonDictionary.yes}
           </Button>
         </DialogActions>
       </Dialog>

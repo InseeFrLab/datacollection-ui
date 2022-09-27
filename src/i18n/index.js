@@ -10,5 +10,5 @@ const language = getLang();
 export const errorDictionary = createDictionary(language)(errorMessage);
 export const buttonDictionary = createDictionary(language)(buttonMessage);
 export const defaultDictionary = createDictionary(language)(dictionary);
-export const burgerDictionary = createDictionary(language)(mainMenuMessage);
+export const menuDictionary = createDictionary(language)(mainMenuMessage);
 export const notifDictionary = createDictionary(language)(notifMessage);

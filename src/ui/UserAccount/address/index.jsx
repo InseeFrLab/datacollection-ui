@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { UserAccountContext } from "../context";
 import { AddressDisplay } from "./display";
 import { AddressForm } from "./form";
+import { buttonDictionary } from "i18n";
 
 export const AddressBlock = () => {
   const {
@@ -23,7 +24,7 @@ export const AddressBlock = () => {
     >
       <AddressDisplay address={address} />
       <Button onClick={() => setAddressEdit(true)} variant="contained">
-        Modifer
+        {buttonDictionary.edit}
       </Button>
       <AddressForm open={addressEdit} close={closeAddessEdit} address={address} />
     </Card>
