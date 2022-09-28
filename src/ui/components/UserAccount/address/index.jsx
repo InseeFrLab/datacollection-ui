@@ -1,6 +1,6 @@
 import { Button, Card } from "@mui/material";
 import { useContext, useState } from "react";
-import { UserAccountContext } from "../context";
+import { UserAccountContext } from "../../../context/UserAccount";
 import { AddressDisplay } from "./display";
 import { AddressForm } from "./form";
 import { buttonDictionary } from "i18n";

@@ -1,7 +1,7 @@
 import { AccountCircle, ContactSupport, Logout } from "@mui/icons-material";
 import { Button, Divider, ListItem, ListItemIcon, Menu, MenuItem, Tooltip } from "@mui/material";
-import { AuthContext } from "ui/auth/provider";
-import { UserAccountContext } from "ui/UserAccount/context";
+import { AuthContext } from "ui/context/auth/provider";
+import { UserAccountContext } from "ui/context/UserAccount";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { defaultDictionary, buttonDictionary } from "i18n";

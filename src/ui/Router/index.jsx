@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
 import { Box } from "@mui/material";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
-import { Menu } from "../Menu";
-import { SurveyList } from "../SurveyList";
-import { UserAccount } from "../UserAccount";
+import { Header } from "../shared/Header";
+import { Footer } from "../shared/Footer";
+import { Menu } from "../shared/Menu";
+import { SurveyList } from "../components/SurveyList";
+import { UserAccount } from "../components/UserAccount";
 
 export const Router = () => {
   return (

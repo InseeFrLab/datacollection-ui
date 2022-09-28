@@ -1,9 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { notifDictionary } from "i18n";
-import { ERROR_SEVERITY, NONE, SUCCESS_SEVERITY } from "core/constants";
-import { NoAuthLogin } from "../auth/provider/noAuth";
+import { ERROR_SEVERITY, SUCCESS_SEVERITY } from "core/constants";
+// import { NoAuthLogin } from "../auth/provider/noAuth";
 import { useAPI, useConstCallback } from "core/hooks";
 import { AppContext } from "App";
+import { AuthContext } from "../auth/provider";
 
 // const initialDataUser = {
 //   id: null,
@@ -13,11 +14,10 @@ import { AppContext } from "App";
 export const UserAccountContext = createContext();
 
 export const UserAccountProvider = ({ children }) => {
-  const { authType, setLoading, openNotif } = useContext(AppContext);
+  const { setLoading, openNotif } = useContext(AppContext);
+  const { oidcUser } = useContext(AuthContext);
   const [user, setUser] = useState(null);
-  const [chooseUser] = useState(authType === NONE);
 
-  const [userId, setUserId] = useState(null);
   const { getMySurveys, getContact, putAddress } = useAPI();
 
   const loadUserData = useConstCallback(async id => {
@@ -53,12 +53,9 @@ export const UserAccountProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!userId && !chooseUser) {
-      //ToDo : retrieve id from oidcToken
-      // setUserId(idFromToken)
-    }
-    if (userId) loadUserData(userId);
-  }, [userId, chooseUser, loadUserData]);
+    // For Keyloack : check if the id is "id" or something like : "preferred_username"
+    if (oidcUser?.id) loadUserData(oidcUser?.id);
+  }, [oidcUser?.id, loadUserData]);
 
   return (
     <>
@@ -67,7 +64,6 @@ export const UserAccountProvider = ({ children }) => {
           {children}
         </UserAccountContext.Provider>
       )}
-      {!user && chooseUser && <NoAuthLogin setId={setUserId} />}
     </>
   );
 };

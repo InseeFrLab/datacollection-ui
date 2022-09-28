@@ -3,17 +3,15 @@ import { OIDC, NONE } from "core/constants";
 import { getOidc } from "core/configuration";
 import { createKeycloakOidcClient } from "core/keycloak";
 import { listenActivity } from "core/events";
+import { NoAuthLogin } from "./noAuth";
 
 export const AuthContext = React.createContext();
 
-const dummyOidcClient = {
-  isUserLoggedIn: true,
-  accessToken: null,
-  login: () => console.log("fake login"),
-  logout: () => (window.location.href = "/"),
-};
-
 const AuthProvider = ({ authType, children }) => {
+  const dummyOidcClient = {
+    isUserLoggedIn: false,
+  };
+
   const [oidcClient, setOidcClient] = useState(() => {
     switch (authType) {
       case OIDC:
@@ -44,6 +42,8 @@ const AuthProvider = ({ authType, children }) => {
     })();
   }, [authType]);
 
+  if (authType === NONE && !oidcClient?.isUserLoggedIn)
+    return <NoAuthLogin setOidcClient={setOidcClient} />;
   if (oidcClient === null || !oidcClient?.isUserLoggedIn) oidcClient.login();
   if (oidcClient && oidcClient.isUserLoggedIn)
     return <AuthContext.Provider value={oidcClient}>{children}</AuthContext.Provider>;

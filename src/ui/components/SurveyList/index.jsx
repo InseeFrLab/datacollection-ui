@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
 import { Welcome } from "../Welcome";
 import { Typography } from "@mui/material";
-import { useAPI } from "../../core/hooks";
+import { useAPI } from "../../../core/hooks";
 import { SmartList } from "./smartList";
-import { UserAccountContext } from "ui/UserAccount/context";
+import { UserAccountContext } from "ui/context/UserAccount";
 
 export const SurveyList = () => {
   const { user, setUser } = useContext(UserAccountContext);

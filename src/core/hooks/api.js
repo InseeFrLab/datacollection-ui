@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "App";
-import { AuthContext } from "ui/auth/provider";
+import { AuthContext } from "ui/context/auth/provider";
 import { API } from "core/api";
 import { useConstCallback } from "./useConstCallback";
 

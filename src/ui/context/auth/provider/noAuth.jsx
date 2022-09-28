@@ -9,25 +9,34 @@ import {
   Typography,
 } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../../App";
-import { useAPI } from "core/hooks/api";
+import { AppContext } from "../../../../App";
 import { notifDictionary } from "i18n";
 import { ERROR_SEVERITY } from "core/constants";
 import { buttonDictionary } from "i18n";
 import "./noAuth.css";
+import { API } from "core/api";
 
-export const NoAuthLogin = ({ setId }) => {
-  const { portailUrl, setLoading, openNotif } = useContext(AppContext);
+export const NoAuthLogin = ({ setOidcClient }) => {
+  const { apiUrl, portailUrl, setLoading, openNotif } = useContext(AppContext);
   const [contacts, setContacts] = useState([]);
   const [selected, setSelected] = useState("");
   const [idSelected, setIdSelected] = useState("");
   const [chooseType, setChooseType] = useState(false);
-  const { getFirstContacts } = useAPI();
+
+  const login = id => {
+    const oidcClient = {
+      isUserLoggedIn: true,
+      accessToken: null,
+      oidcUser: { id: id },
+      logout: () => (window.location.href = "/"),
+    };
+    setOidcClient(oidcClient);
+  };
 
   useEffect(() => {
     const loadContact = async () => {
       setLoading(true);
-      const { data, error } = await getFirstContacts();
+      const { data, error } = await API.getContacts(apiUrl)(null);
       if (data) {
         const { content: contactsFetched } = data;
         setContacts(contactsFetched);
@@ -62,8 +71,8 @@ export const NoAuthLogin = ({ setId }) => {
   const chooseUser = type => {
     if (type) {
       const { identifier } = contacts[selected];
-      setId(identifier);
-    } else if (!type) setId(idSelected);
+      login(identifier);
+    } else if (!type) login(idSelected);
   };
 
   return (

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Card, Grid, Grow, Typography } from "@mui/material";
-import { UserAccountContext } from "./context";
+import { UserAccountContext } from "../../context/UserAccount";
 import { AddressBlock } from "./address";
 import { menuDictionary, buttonDictionary } from "i18n";
 
