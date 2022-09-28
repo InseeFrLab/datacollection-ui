@@ -9,7 +9,8 @@ const readJsonResponse = async response => {
 
 export const fetcher = async (url, token, method, params, body) => {
   const headers = {
-    Accept: "application/hal+json", // ToDo "only json ?"
+    Accept: "application/json",
+    "Content-Type": "application/json",
   };
   try {
     const response = await fetch(params ? `${url}?${new URLSearchParams(params)}` : url, {
