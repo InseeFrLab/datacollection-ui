@@ -12,7 +12,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../App";
 import { useAPI } from "core/hooks/api";
 import { notifDictionary } from "i18n";
-import { ERROR_TYPE } from "core/constants";
+import { ERROR_SEVERITY } from "core/constants";
 import { buttonDictionary } from "i18n";
 import "./noAuth.css";
 
@@ -34,7 +34,7 @@ export const NoAuthLogin = ({ setId }) => {
       }
       if (error) {
         openNotif({
-          severity: ERROR_TYPE,
+          severity: ERROR_SEVERITY,
           message: notifDictionary.contactLoadingError,
         });
       }

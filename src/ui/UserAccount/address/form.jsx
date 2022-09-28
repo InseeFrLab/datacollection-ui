@@ -105,7 +105,7 @@ export const AddressForm = ({ open, close, address }) => {
               {buttonDictionary.cancel}
             </Button>
             <Button variant="contained" onClick={validateForm}>
-              {buttonDictionary.cancel}
+              {buttonDictionary.save}
             </Button>
           </DialogActions>
         </Dialog>

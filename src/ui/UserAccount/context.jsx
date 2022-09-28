@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { notifDictionary } from "i18n";
-import { ERROR_TYPE, NONE, SUCCESS_TYPE } from "core/constants";
+import { ERROR_SEVERITY, NONE, SUCCESS_SEVERITY } from "core/constants";
 import { NoAuthLogin } from "../auth/provider/noAuth";
 import { useAPI, useConstCallback } from "core/hooks";
 import { AppContext } from "App";
@@ -18,18 +18,17 @@ export const UserAccountProvider = ({ children }) => {
   const [chooseUser] = useState(authType === NONE);
 
   const [userId, setUserId] = useState(null);
-  const { getMySurveys, getContact, getContactAddress, putAddress } = useAPI();
+  const { getMySurveys, getContact, putAddress } = useAPI();
 
   const loadUserData = useConstCallback(async id => {
     setLoading(true);
     const { data: account, error: accountError } = await getContact(id);
     const { data: mySurveys, error: mySurveysError } = await getMySurveys(id);
-    const { data: address, error: addressError } = await getContactAddress(id);
     setLoading(false);
-    if (!accountError && !mySurveysError && !addressError) setUser({ id, account, mySurveys, address });
+    if (!accountError && !mySurveysError) setUser({ id, ...account, mySurveys });
     else {
       openNotif({
-        severity: ERROR_TYPE,
+        severity: ERROR_SEVERITY,
         message: notifDictionary.contactsLoadingError(id),
       });
     }
@@ -37,23 +36,16 @@ export const UserAccountProvider = ({ children }) => {
 
   const updateAddress = async newAddress => {
     setLoading(true);
-    const {
-      address: {
-        _links: {
-          self: { href: updateUrl },
-        },
-      },
-    } = user;
-    const { error } = await putAddress(updateUrl, newAddress);
+    const { error } = await putAddress(user.id, newAddress);
     if (!error) {
       openNotif({
-        severity: SUCCESS_TYPE,
+        severity: SUCCESS_SEVERITY,
         message: notifDictionary.addressChangeConfirmation,
       });
       setUser({ ...user, address: newAddress });
     } else {
       openNotif({
-        severity: ERROR_TYPE,
+        severity: ERROR_SEVERITY,
         message: notifDictionary.addressChangeError,
       });
     }
@@ -63,6 +55,7 @@ export const UserAccountProvider = ({ children }) => {
   useEffect(() => {
     if (!userId && !chooseUser) {
       //ToDo : retrieve id from oidcToken
+      // setUserId(idFromToken)
     }
     if (userId) loadUserData(userId);
   }, [userId, chooseUser, loadUserData]);

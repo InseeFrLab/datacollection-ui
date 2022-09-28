@@ -9,7 +9,7 @@ import { menuDictionary, buttonDictionary } from "i18n";
 
 export const UserAccount = () => {
   const {
-    user: { account },
+    user,
     // updateAccount,
   } = useContext(UserAccountContext);
 
@@ -39,7 +39,7 @@ export const UserAccount = () => {
                     id="outlined-name"
                     label="Adresse de messagerie"
                     fullWidth
-                    value={account?.email}
+                    value={user?.email}
                   />
                   <Button>{buttonDictionary.edit}</Button>
                 </Card>
@@ -84,10 +84,10 @@ export const UserAccount = () => {
                     p: 2,
                   }}
                 >
-                  <TextField id="outlined-name" label="Nom" disabled value={account.lastName} />
-                  <TextField id="outlined-name" label="Prénom" disabled value={account.firstName} />
-                  <TextField id="outlined-name" label="Fonction" disabled value={account.function} />
-                  <TextField id="outlined-name" label="Téléphone" disabled value={account.phone} />
+                  <TextField id="outlined-name" label="Nom" disabled value={user.lastName} />
+                  <TextField id="outlined-name" label="Prénom" disabled value={user.firstName} />
+                  <TextField id="outlined-name" label="Fonction" disabled value={user.function} />
+                  <TextField id="outlined-name" label="Téléphone" disabled value={user.phone} />
                   <Button>{buttonDictionary.edit}</Button>
                 </Card>
               </Grid>

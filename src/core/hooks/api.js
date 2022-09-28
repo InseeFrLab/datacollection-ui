@@ -18,8 +18,8 @@ export const useAPI = () => {
     API.getContactAddress(apiUrl)(id)(oidcClient.accessToken),
   );
 
-  const putAddress = useConstCallback((url, newAddress) =>
-    API.putAddress(url)(newAddress)(oidcClient.accessToken),
+  const putAddress = useConstCallback((id, newAddress) =>
+    API.putAddress(apiUrl)(id)(newAddress)(oidcClient.accessToken),
   );
 
   return {

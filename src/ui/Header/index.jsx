@@ -70,7 +70,7 @@ export const Header = () => {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <ListItem>{`${user.account.lastName} ${user.account.firstName}`}</ListItem>
+          <ListItem>{`${user.lastName} ${user.firstName}`}</ListItem>
           <Divider />
           <Link to="/portail">
             <MenuItem>
