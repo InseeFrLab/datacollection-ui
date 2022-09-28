@@ -1,16 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { notifDictionary } from "i18n";
 import { ERROR_SEVERITY, SUCCESS_SEVERITY } from "core/constants";
-// import { NoAuthLogin } from "../auth/provider/noAuth";
 import { useAPI, useConstCallback } from "core/hooks";
 import { AppContext } from "App";
 import { AuthContext } from "../auth/provider";
 
-// const initialDataUser = {
-//   id: null,
-//   mySurveys: [],
-//   account: {},
-// };
 export const UserAccountContext = createContext();
 
 export const UserAccountProvider = ({ children }) => {

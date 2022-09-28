@@ -37,7 +37,7 @@ const App = () => {
       return;
     }
 
-    setNotif({ open: false });
+    setNotif(oldNotif => ({ ...oldNotif, open: false }));
   };
 
   const context = useMemo(() => ({ ...configuration, setLoading, openNotif }), [configuration]);
