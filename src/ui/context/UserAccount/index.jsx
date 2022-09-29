@@ -47,9 +47,13 @@ export const UserAccountProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // For Keyloack : check if the id is "id" or something like : "preferred_username"
+    /**
+     * For Keyloack : check if the id is "id" or something like : "preferred_username"
+     * If it's not "id" but "preferred_username", change "oidcUser?.id" to "oidcUser?.preferred_username"
+     * Please change in ui/context/auth/provider/NoAuth.jsx, "oidcUser: { id: id }," to "`oidcUser: { preferred_username: id },"
+     */
     if (oidcUser?.id) loadUserData(oidcUser?.id);
-  }, [oidcUser?.id, loadUserData]);
+  }, [oidcUser?.id]);
 
   return (
     <>
